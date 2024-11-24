@@ -1,0 +1,40 @@
+---
+services:
+  weaviate:
+    command:
+    - --host
+    - 0.0.0.0
+    - --port
+    - '9035'
+    - --scheme
+    - http
+    image: cr.weaviate.io/semitechnologies/weaviate:1.27.5
+    ports:
+    - 9035:9035
+    - 50051:50051
+    volumes:
+    - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      ENABLE_API_BASED_MODULES: 'true'
+      CLUSTER_HOSTNAME: 'node1'
+  
+  ollama:
+    image: ollama/ollama
+    ports:
+    - 11434:11434
+    volumes:
+    - ollama_data:/root/.ollama
+  
+  rag-server:
+    image: songjiayang.com/rea-server:0.1.0
+    ports:
+    - 8080:8080
+
+volumes:
+  weaviate_data:
+  ollama_data:
