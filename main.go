@@ -16,7 +16,7 @@ import (
 	"github.com/tmc/langchaingo/vectorstores/weaviate"
 )
 
-const llmModelName = "llama3.2"
+const llamaVersion = "llama3.2"
 
 // This is a standard Go HTTP server. Server state is in the ragServer struct.
 // The `main` function connects to the required services (Weaviate and Ollama),
@@ -24,7 +24,7 @@ const llmModelName = "llama3.2"
 func main() {
 	ctx := context.Background()
 	llm, err := ollama.New(
-		ollama.WithModel(llmModelName),
+		ollama.WithModel(llamaVersion),
 		ollama.WithServerURL(cmp.Or(os.Getenv("OLLAMA_SERVER"), "http://localhost:11434")),
 	)
 	if err != nil {

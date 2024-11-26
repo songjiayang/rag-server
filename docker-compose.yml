@@ -34,6 +34,10 @@ services:
     image: songjiayang.com/rea-server:0.1.0
     ports:
     - 8080:8080
+    environment:
+      OLLAMA_SERVER: "http://ollama:11434"
+      WVHOST: "weaviate:9035"
+      ADDR: "0.0.0.0:8080"
 
 volumes:
   weaviate_data:
