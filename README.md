@@ -6,7 +6,7 @@ RAG server build in Go and ollama.
 
 1. [Ollama](https://ollama.com/) is popular in local LLM Apps.
 2. Many vector databases are developed in Go, [weaviate](https://weaviate.io) etc.
-3. There are good tools for building LLM applications, [LangChanGo](https://github.com/tmc/langchaingo), [lingoose](https://github.com/henomis/lingoose) etc.
+3. There are good tools for building LLM applications, [eino](https://github.com/cloudwego/eino) [LangChanGo](https://github.com/tmc/langchaingo), [lingoose](https://github.com/henomis/lingoose) etc.
 
 More information you can reference this blog [Building LLM-powered applications in Go](https://go.dev/blog/llmpowered).
 
